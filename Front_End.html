@@ -1,0 +1,89 @@
+<!--Front-end code structure: 
+Name: Brian
+Link: https://github.com/briancodex/html-css-js-website-smooth-scroll-->
+
+ <!--
+            Recording code credits: Mark Jivko
+            Link: https://github.com/Stephino/stephino.github.io/blob/master/tutorials/B3wWIsNHPk4/index.html
+            YT: https://youtu.be/B3wWIsNHPk4
+
+          -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Ruha</title>
+    <link rel="stylesheet" href="Front_End.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="#home" id="navbar__logo">I20-1753</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="#home" class="navbar__links" id="home-page">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#about" class="navbar__links" id="about-page">Upload Image</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="Commands.pdf" target="_blank" class="button" id="Commands" >Project Code</a>    <!--PUT THE FILE NAME IN THE HREF-->
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div class="hero" id="home">
+      <div class="hero__container">
+        <!-- The animation here-->
+        <p class="hero__description">Neural Network Project </p>
+        <button class="main__btn"><a href="Commands.pdf" target="_blank">Project Code</a></button>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="main" id="about">
+      <div class="main__container">
+        {% if filename %}
+        <div class="main__img--container">
+          <img src="{{ url_for('static', filename = 'frontRec/'+filename) }}"">
+        </div>
+        {% endif %}
+        <div class="main__content">
+          <h1>Upload your meme!!</h1>
+
+          <div class="holder">
+            <input type="file" name="imgfile" autocomplete="off" required>
+            <input type="file" name="imgTXT" autocomplete="off" required>
+            <p>
+              <input type="submit" value="Submit">
+            </p>            
+            
+          </div>
+
+
+          <h2>Output:</h2>
+          <p class="Model_Output"></p>
+
+        </div>
+      </div>
+    </div>
+
+
+    <script src="app.js"></script>
+  </body>
+</html>
